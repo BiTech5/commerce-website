@@ -86,22 +86,23 @@
             <div class="col-md-12">
                 <h4 class="mb-4">Our Products</h4>
             </div>
+            {% for i in data %}
             <div class="col-md-3">
                 <div class="product-card">
                     <div class="product-card-img">
                         <label class="stock bg-success">In Stock</label>
-                        <img src="hp-laptop.jpg" alt="Laptop">
-                    </div>
+                        <img src="media/{{i.img}}" alt="Laptop">
+                    </div> 
                     <div class="product-card-body">
-                        <p class="product-brand">HP</p>
+                        <p class="product-brand">{{i.brand}}</p>
                         <h5 class="product-name">
                            <a href="">
-                                HP Laptop 
+                                {{ i.title | capfirst }}
                            </a>
                         </h5>
                         <div>
-                            <span class="selling-price">$500</span>
-                            <span class="original-price">$799</span>
+                            <span class="selling-price">${{i.dis_price}}</span>
+                            <span class="original-price">${{i.org_price}}</span>
                         </div>
                         <div class="mt-2">
                             <a href="" class="btn btn1"> View </a>
@@ -109,6 +110,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
