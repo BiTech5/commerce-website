@@ -10,3 +10,5 @@ class Product(models.Model):
     dis_price=models.IntegerField()
     img=models.ImageField(upload_to='image/')
 
+    def __str__(self):
+        return self.title
