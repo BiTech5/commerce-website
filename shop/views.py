@@ -4,3 +4,6 @@ from . import models
 def home(request):
     data=models.Product.objects.all()
     return render(request,'main.html',{"data":data})
+
+def contact(request):
+    return render(request,'contact.html')
