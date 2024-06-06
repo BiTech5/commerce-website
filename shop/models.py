@@ -1,9 +1,10 @@
 from django.db import models
-
+from autoslug import AutoSlugField
 # Create your models here.
 class Product(models.Model):
     title=models.CharField(max_length=60)
     brand=models.CharField(max_length=60)
+    slug=AutoSlugField(populate_from='title',unique=True,null=True,default=None)
     short_desc=models.CharField(max_length=300)
     long_desc=models.TextField()
     org_price=models.IntegerField()
