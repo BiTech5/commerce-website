@@ -12,3 +12,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class AboutUs(models.Model):
+    heading = models.CharField(max_length=200)
+    brief_description = models.TextField()
+    description = models.TextField()
+    image = models.ImageField(upload_to='about_us_images/')
+    button_text = models.CharField(max_length=100, blank=True, null=True)
+    button_url = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.heading
+
+    class Meta:
+        verbose_name = "About Us"
+        verbose_name_plural = "About Us"

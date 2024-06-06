@@ -7,3 +7,7 @@ def home(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+def about(request):
+    about_us=models.AboutUs.objects.all()
+    return render(request,'about_us.html',{'about_us':about_us})
