@@ -1,0 +1,35 @@
+{% include 'header.html' %}
+<div class="container">
+  
+          <h2 class="text-center mt-5">Sign Up</h2>
+          <form method="POST" >
+              {% csrf_token %}
+              <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+              </div>
+              <br>
+              <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+              </div>
+              <br>
+              <div class="form-group">
+                  <label for="password1">Password</label>
+                  <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter your password" required>
+              </div>
+              <br>
+              <div class="form-group">
+                  <label for="password2">Confirm Password</label>
+                  <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm your password" required>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          </form>
+          <div class="text-center mt-3">
+              <p>Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
+          </div>
+
+</div>
+
+{% include 'footer.html' %}
