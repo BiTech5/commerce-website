@@ -1,17 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ecommerce Cart/Wishlist Page Design</title>
-
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div class="py-3 py-md-5 bg-light">
+{% include "header.html" %}
+<div class="py-3 py-md-5 bg-light">
         <div class="container">
     
             <div class="row">
@@ -51,81 +39,23 @@
                                 <div class="col-md-2 col-7 my-auto">
                                     <div class="quantity">
                                         <div class="input-group">
-                                            <span class="btn btn1"><i class="fa fa-minus"></i></span>
+                                            <span class="btn btn1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                                              </svg></span>
                                             <input type="text" value="1" class="input-quantity" />
 
-
-                                            <span class="btn btn1"><i class="fa fa-plus"></i></span>
+                                            <span class="btn btn1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                              </svg></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-5 my-auto">
                                     <div class="remove">
                                         <a href="" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i> Remove
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-item">
-                            <div class="row">
-                                <div class="col-md-6 my-auto">
-                                    <a href="">
-                                        <label class="product-name">
-                                            <img src="hp-laptop.jpg" style="width: 50px; height: 50px" alt="">
-                                            Hp Laptop
-                                        </label>
-                                    </a>
-                                </div>
-                                <div class="col-md-2 my-auto">
-                                    <label class="price">$569 </label>
-                                </div>
-                                <div class="col-md-2 col-7 my-auto">
-                                    <div class="quantity">
-                                        <div class="input-group">
-                                            <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                            <input type="text" value="1" class="input-quantity" />
-                                            <span class="btn btn1"><i class="fa fa-plus"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-5 my-auto">
-                                    <div class="remove">
-                                        <a href="" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i> Remove
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-item">
-                            <div class="row">
-                                <div class="col-md-6 my-auto">
-                                    <a href="">
-                                        <label class="product-name">
-                                            <img src="hp-laptop.jpg" style="width: 50px; height: 50px" alt="">
-                                            Hp Laptop
-                                        </label>
-                                    </a>
-                                </div>
-                                <div class="col-md-2 my-auto">
-                                    <label class="price">$569 </label>
-                                </div>
-                                <div class="col-md-2 col-7 my-auto">
-                                    <div class="quantity">
-                                        <div class="input-group">
-                                            <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                            <input type="text" value="1" class="input-quantity" />
-
-                                            <span class="btn btn1"><i class="fa fa-plus"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-5 my-auto">
-                                    <div class="remove">
-                                        <a href="" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i> Remove
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                              </svg> Remove
                                         </a>
                                     </div>
                                 </div>
@@ -138,7 +68,7 @@
 
         </div>
     </div>
+    <br>
+    <br>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% include "footer.html" %}
