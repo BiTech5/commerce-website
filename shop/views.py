@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . import models
+from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -19,6 +20,16 @@ def login(request):
 
 
 def signup(request):
+    if request.method=='POST':
+        first_name=request.POST.get('first')
+        last_name=request.POST.get('last')
+        email=request.POST.get('email')
+        username=request.POST.get('username')
+        passw=request.POST.get('password1')
+
+        data=User.objects.create_user(first_name=first_name,last_name=last_name,email=email,username=username,password=passw)
+        data.save()
+        return redirect('login')
     return render(request,'signup.html')
 
 def cart(request):
