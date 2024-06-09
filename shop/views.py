@@ -16,6 +16,13 @@ def about(request):
     return render(request,'about_us.html',{'about_us':about_us})
 
 def login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        passw=request.POST.get('password')
+        log=auth.authenticate(username=username,password=passw)
+        if log is not None:
+            auth.login(request,log)
+            return redirect('home')
     return render(request,'login.html')
 
 
