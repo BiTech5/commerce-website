@@ -45,3 +45,6 @@ def cart(request):
 def product_detail(request,slug):
     detail=models.Product.objects.get(slug=slug)
     return render(request,'detail.html',{"detail":detail})
+
+def checkout(request):
+    return render(request,'checkout.html')

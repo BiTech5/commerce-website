@@ -29,3 +29,10 @@ class AboutUs(models.Model):
     class Meta:
         verbose_name = "About Us"
         verbose_name_plural = "About Us"
+
+class Cart(models.Model):
+    img=models.ImageField(upload_to='cart/')
+    title=models.CharField(max_length=60)
+    price=models.IntegerField()
+    quantity=models.IntegerField()
+    

@@ -24,14 +24,13 @@
                         </div>
                         <div class="mt-2">
                             <div class="input-group">
-                                <span class="btn btn1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                <span class="btn btn1" id="decrement-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
-                                  </svg></span>
-                                <input type="text" value="1" class="input-quantity" />
-
-                                <span class="btn btn1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                </svg></span>
+                                <input type="text" value="0" class="input-quantity" id="quantity-input" />
+                                <span class="btn btn1" id="increment-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                                  </svg></span>
+                                </svg></span>
                             </div>
                         </div>
                         <div class="mt-2">
@@ -64,4 +63,30 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const decrementBtn = document.getElementById('decrement-btn');
+            const incrementBtn = document.getElementById('increment-btn');
+            const quantityInput = document.getElementById('quantity-input');
+    
+            decrementBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                if (quantity > 0) {
+                    quantityInput.value = quantity - 1;
+                }
+            });
+    
+            incrementBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                quantityInput.value = quantity + 1;
+            });
+    
+            quantityInput.addEventListener('input', function() {
+                let quantity = parseInt(this.value);
+                if (isNaN(quantity) || quantity < 0) {
+                    this.value = 0;
+                }
+            });
+        });
+    </script>
 {% include "footer.html" %}
