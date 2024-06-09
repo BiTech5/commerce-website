@@ -33,7 +33,6 @@ def signup(request):
         email=request.POST.get('email')
         username=request.POST.get('username')
         passw=request.POST.get('password1')
-
         data=User.objects.create_user(first_name=first_name,last_name=last_name,email=email,username=username,password=passw)
         data.save()
         return redirect('login')
@@ -41,3 +40,7 @@ def signup(request):
 
 def cart(request):
     return render(request,'cart.html')
+
+def product_detail(request,slug):
+    detail=models.Product.objects.get(slug=slug)
+    return render(request,'detail.html',{"detail":detail})
