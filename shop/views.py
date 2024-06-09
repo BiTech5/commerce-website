@@ -16,15 +16,16 @@ def about(request):
     return render(request,'about_us.html',{'about_us':about_us})
 
 def login(request):
-    if request.method=='POST':
-        username=request.POST.get('username')
-        passw=request.POST.get('password')
-        log=auth.authenticate(username=username,password=passw)
-        if log is not None:
-            auth.login(request,log)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
             return redirect('home')
-    return render(request,'login.html')
-
+        else:
+            return render(request, 'login.html', {'error': 'Invalid username or password'})
+    return render(request, 'login.html')
 
 def signup(request):
     if request.method=='POST':
