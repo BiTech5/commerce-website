@@ -1,5 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
+from django.contrib.auth.models import User
 # Create your models here.
 class Product(models.Model):
     title=models.CharField(max_length=60)
@@ -31,8 +32,11 @@ class AboutUs(models.Model):
         verbose_name_plural = "About Us"
 
 class Cart(models.Model):
-    img=models.ImageField(upload_to='cart/')
-    title=models.CharField(max_length=60)
-    price=models.IntegerField()
-    quantity=models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Add user field
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)  # Add product field
+    quantity = models.IntegerField(default=1)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.title} in {self.user.username}'s cart"
     
