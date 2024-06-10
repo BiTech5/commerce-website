@@ -1,4 +1,5 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponse
 from . import models
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -47,7 +48,14 @@ def logout(request):
     return redirect('login')
 @login_required(login_url='/login/')
 def cart(request):
-    return render(request,'cart.html')
+    cart_items = models.Cart.objects.filter(user=request.user)
+    total_price = sum(item.product.dis_price * item.quantity for item in cart_items)
+    
+    context = {
+        'cart_items': cart_items,
+        'total_price': total_price,
+    }
+    return render(request,'cart.html',context)
 @login_required(login_url='/login/')
 def product_detail(request,slug):
     detail=models.Product.objects.get(slug=slug)
@@ -55,3 +63,14 @@ def product_detail(request,slug):
 @login_required(login_url='/login/')
 def checkout(request):
     return render(request,'checkout.html')
+
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(models.Product, id=product_id)
+    user = request.user
+
+    cart_item, created = models.Cart.objects.get_or_create(user=user, product=product)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect('cart')

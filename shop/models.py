@@ -32,7 +32,7 @@ class AboutUs(models.Model):
         verbose_name_plural = "About Us"
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Add user field
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True) # Add user field
     product = models.ForeignKey('Product', on_delete=models.CASCADE)  # Add product field
     quantity = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
