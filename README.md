@@ -68,7 +68,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 ## Design Inspiration
 
-The frontend design was inspired by the e-commerce slider design [from Funda of Web IT](https://www.example.com).
+The frontend design was inspired by the e-commerce slider design from [Funda of Web IT](https://www.fundaofwebit.com/ecommerce-template/how-to-make-ecommerce-slider-design-using-html-css-and-bootstrap).
 
 
 ## License
