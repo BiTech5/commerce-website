@@ -38,7 +38,9 @@ def signup(request):
         data.save()
         return redirect('login')
     return render(request,'signup.html')
-
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 def cart(request):
     return render(request,'cart.html')
 
