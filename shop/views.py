@@ -53,7 +53,6 @@ def cart(request):
     
     context = {
         'cart_items': cart_items,
-        'total_price': total_price,
     }
     return render(request,'cart.html',context)
 @login_required(login_url='/login/')
