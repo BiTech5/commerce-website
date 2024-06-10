@@ -7,15 +7,17 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     data=models.Product.objects.all()
     return render(request,'main.html',{"data":data})
-
+@login_required(login_url='/login/')
 def contact(request):
     return render(request,'contact.html')
-
+@login_required(login_url='/login/')
 def about(request):
     about_us=models.AboutUs.objects.all()
     return render(request,'about_us.html',{'about_us':about_us})
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -28,6 +30,8 @@ def login(request):
     return render(request, 'login.html')
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method=='POST':
         first_name=request.POST.get('first')
         last_name=request.POST.get('last')
@@ -41,12 +45,13 @@ def signup(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+@login_required(login_url='/login/')
 def cart(request):
     return render(request,'cart.html')
-
+@login_required(login_url='/login/')
 def product_detail(request,slug):
     detail=models.Product.objects.get(slug=slug)
     return render(request,'detail.html',{"detail":detail})
-
+@login_required(login_url='/login/')
 def checkout(request):
     return render(request,'checkout.html')
