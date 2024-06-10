@@ -66,6 +66,9 @@ Contributions are welcome! Please fork the repository and create a pull request 
 5. Create a pull request on GitHub.
 
 
+## Design Inspiration
+
+The frontend design was inspired by the e-commerce slider design [from Funda of Web IT](https://www.example.com).
 
 
 ## License
