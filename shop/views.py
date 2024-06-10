@@ -73,3 +73,24 @@ def add_to_cart(request, product_id):
         cart_item.quantity += 1
         cart_item.save()
     return redirect('cart')
+
+
+def increase_quantity(request, item_id):
+    cart_item = get_object_or_404(models.Cart, id=item_id, user=request.user)
+    cart_item.quantity += 1
+    cart_item.save()
+    return redirect('cart')
+
+def decrease_quantity(request, item_id):
+    cart_item = get_object_or_404(models.Cart, id=item_id, user=request.user)
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
+        cart_item.save()
+    else:
+        cart_item.delete()
+    return redirect('cart')
+
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(models.Cart, id=item_id, user=request.user)
+    cart_item.delete()
+    return redirect('cart')
